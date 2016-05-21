@@ -64,7 +64,7 @@
         
 ### Installation à l'aide du script install_epargne.sh
 1. Télécharger le script 
-        wget https://raw.githubusercontent.com/Thibautg16/EedomusBundle/master/install_eedomus.sh               
+        wget https://raw.githubusercontent.com/Thibautg16/EedomusBundle/master/src/install_eedomus.sh               
 
 2. Exécuter le script en précisant le dossier d'installation
         bash install_eedomus.sh /srv/www/eedomus  

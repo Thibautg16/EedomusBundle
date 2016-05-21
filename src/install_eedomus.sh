@@ -6,8 +6,10 @@
 # AUTEUR : Gillardeau Thibaut (aka Thibautg16)
 # DATE : 21/05/2016
 #
-# VERSION 0.1
-# 21/05/2016 - Creation script original
+# VERSION 0.2
+#
+# 21/05/2016 - Creation script original - v0.1
+# 21/05/2016 - Correction app/AppKernel.php - v0.2
 #
 # =============================================================================
 
@@ -29,11 +31,10 @@ cd ${dossier}
 sed -i '/"symfony\/symfony": "3.*",/a "thibautg16/eedomus-bundle": "dev-master",' composer.json
 sed -i 's/.*"extra": {.*/"minimum-stability": "dev",\n&/' composer.json
 sed -i 's/.*"extra": {.*/"prefer-stable": true,\n&/' composer.json
-composer update
-sed -i '/$bundles = array(/a new EedomusBundle\EedomusBundle(),' app/AppKernel.php
-sed -i '/new EedomusBundle\EedomusBundle(),/a new Ob\HighchartsBundle\ObHighchartsBundle(),' app/AppKernel.php
-sed -i '/new EedomusBundle\EedomusBundle(),/a new Thibautg16\SqueletteBundle\Thibautg16SqueletteBundle(),' app/AppKernel.php
-sed -i '/new EedomusBundle\EedomusBundle(),/a new Thibautg16\UtilisateurBundle\Thibautg16UtilisateurBundle(),' app/AppKernel.php
+sed -i '/$bundles = \[/a new EedomusBundle\\EedomusBundle(),' app/AppKernel.php
+sed -i '/new EedomusBundle\EedomusBundle(),/a new Ob\\HighchartsBundle\\ObHighchartsBundle(),' app/AppKernel.php
+sed -i '/new EedomusBundle\EedomusBundle(),/a new Thibautg16\\SqueletteBundle\\Thibautg16SqueletteBundle(),' app/AppKernel.php
+sed -i '/new EedomusBundle\EedomusBundle(),/a new Thibautg16\\UtilisateurBundle\\Thibautg16UtilisateurBundle(),' app/AppKernel.php
 echo '
 EedomusBundle:
     resource: "@EedomusBundle/Resources/config/routing.yml"
@@ -49,7 +50,6 @@ Thibautg16SqueletteBundle:
 ' >> app/config/routing.yml
 composer update
 php bin/console doctrine:generate:entities Thibautg16UtilisateurBundle
-php bin/console doctrine:generate:entities Thibautg16SqueletteBundle
 php bin/console doctrine:generate:entities EedomusBundle
 php bin/console doctrine:schema:update --force
 rm src/AppBundle/Controller/DefaultController.php
