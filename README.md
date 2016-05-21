@@ -58,6 +58,7 @@
            prefix:   /
 
 6. Update des entitees et creation / update BDD :
+
         php bin/console doctrine:generate:entities EedomusBundle
         php bin/console doctrine:generate:entities Thibautg16UtilisateurBundle       
         php bin/console doctrine:schema:update --force
