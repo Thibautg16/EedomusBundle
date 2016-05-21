@@ -32,9 +32,9 @@ sed -i '/"symfony\/symfony": "3.*",/a "thibautg16/eedomus-bundle": "dev-master",
 sed -i 's/.*"extra": {.*/"minimum-stability": "dev",\n&/' composer.json
 sed -i 's/.*"extra": {.*/"prefer-stable": true,\n&/' composer.json
 sed -i '/$bundles = \[/a new EedomusBundle\\EedomusBundle(),' app/AppKernel.php
-sed -i '/new EedomusBundle\EedomusBundle(),/a new Ob\\HighchartsBundle\\ObHighchartsBundle(),' app/AppKernel.php
-sed -i '/new EedomusBundle\EedomusBundle(),/a new Thibautg16\\SqueletteBundle\\Thibautg16SqueletteBundle(),' app/AppKernel.php
-sed -i '/new EedomusBundle\EedomusBundle(),/a new Thibautg16\\UtilisateurBundle\\Thibautg16UtilisateurBundle(),' app/AppKernel.php
+sed -i '/new EedomusBundle\\EedomusBundle(),/a new Ob\\HighchartsBundle\\ObHighchartsBundle(),' app/AppKernel.php
+sed -i '/new EedomusBundle\\EedomusBundle(),/a new Thibautg16\\SqueletteBundle\\Thibautg16SqueletteBundle(),' app/AppKernel.php
+sed -i '/new EedomusBundle\\EedomusBundle(),/a new Thibautg16\\UtilisateurBundle\\Thibautg16UtilisateurBundle(),' app/AppKernel.php
 echo '
 EedomusBundle:
     resource: "@EedomusBundle/Resources/config/routing.yml"

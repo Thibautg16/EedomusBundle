@@ -99,29 +99,7 @@ foreach($periph->body as $p){
                 $reversed = array_reverse($historique->body->history);
 
                 // Pour chaque valeur, on l'ajoute dans la base de données
-                foreach($reversed as $v){
-                        /********* IOT OVH *********/
-                        $param = array(
-                                     array(
-                                        "metric" => $periph_name,
-                                        "value"  => floatval($v[0]),
-                                        "timestamp" => strtotime($v[1]),
-                                        "tags" => array("piece" => $p->room_name)
-                                     ));
-
-                        $post = json_encode($param);
-
-                        $process = curl_init('opentsdb.iot.runabove.io');
-                        curl_setopt($process, CURLOPT_URL, 'https://opentsdb.iot.runabove.io/api/put');
-                        curl_setopt($process, CURLOPT_HEADER, 1);
-                        curl_setopt($process, CURLOPT_USERPWD, $idTS.':'.$tokenTS);
-                        curl_setopt($process, CURLOPT_POST, 1);
-                        curl_setopt($process, CURLOPT_POSTFIELDS, $post);
-                        curl_setopt($process, CURLOPT_RETURNTRANSFER, TRUE);
-                        $return = curl_exec($process);
-                        curl_close($process);
-                        /********* FIN IOT OVH *********/
-                        
+                foreach($reversed as $v){                        
                         /********* DEBUT CONSO ELEC & GAZ *********/
                         if(array_key_exists($periph_name, $periphCompteur)){
                                 // On récupére la derniére valeur du compteur

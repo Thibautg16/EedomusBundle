@@ -33,11 +33,6 @@ $nomBDD = "nomBDD"
 $api_user = 'apiEedomusUser';
 $api_secret = 'apiEedomusMdp';
 
-// PassTS OVH
-$passts = FALSE;
-$idTS = "";
-$tokenTS = "";
-
 // Configuration compteur
 $periphCompteur = array('Gaz_Cave' => array('type' => 'GAZ', 'id' => '98'), 
                         'Edf_Entree' => array('type' => 'EDF', 'id' => '69'));
