@@ -1,0 +1,23 @@
+eedomus_accueil:
+    path:     /eedomus/mesures/liste
+    defaults: { _controller: EedomusBundle:Mesures:liste }
+    
+eedomus_mesures_liste:
+    path:     /eedomus/mesures/liste
+    defaults: { _controller: EedomusBundle:Mesures:liste }
+    
+eedomus_mesures_graph:
+    path:     /eedomus/mesures/graph
+    defaults: { _controller: EedomusBundle:Mesures:graph }
+    
+eedomus_mesures_ajaxgraph:
+    path:     /eedomus/mesures/ajaxgraph
+    defaults: { _controller: EedomusBundle:Mesures:ajaxgraph }    
+
+eedomus_dashboard:
+    path:     /eedomus/dashboard
+    defaults: { _controller: EedomusBundle:Dashboard:dashboard }      
+
+eedomus_compteurs_liste:
+    path:     /eedomus/compteurs/liste/{type}
+    defaults: { _controller: EedomusBundle:Compteurs:liste }

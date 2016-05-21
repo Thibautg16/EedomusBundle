@@ -1,0 +1,128 @@
+{# 
+ # src/EedomusBundle/Ressources/views/Mesures/liste.html.twig 
+ # Copyright 2016 GILLARDEAU Thibaut (aka Thibautg16)
+ #
+ # Authors :
+ #  - Gillardeau Thibaut (aka Thibautg16)
+ #
+ # Licensed under the Apache License, Version 2.0 (the "License"). 
+ # You may not use this file except in compliance with the License. 
+ # A copy of the License is located at :
+ # 
+ # http://www.apache.org/licenses/LICENSE-2.0.txt 
+ # 
+ # or in the "license" file accompanying this file. This file is distributed 
+ # on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either 
+ # express or implied. See the License for the specific language governing 
+ # permissions and limitations under the License. 
+ #}
+  
+{% extends "Thibautg16SqueletteBundle::layout.html.twig" %}
+ 
+{% block title %}
+  {{ parent() }} - Eedomus
+{% endblock %}
+
+{% block fil_ariane %} 
+	{#{ parent() }#} 
+    <li><a href="">Accueil</a></li>
+    <li>Eedomus</li>
+    <li class="active"><a href="">Dashboard</a></li>
+{% endblock %}
+
+{% block body_ssi %}
+<div class="col-sm-12">
+    <fieldset>       
+	    <legend><h3>Dashboard Eedomus</h3></legend>
+        
+        {% set valCompteurEdf = oCompteur.EDF.valeur / 1000 %}
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4 glyphicon glyphicon-flash dashicon">
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <div class="huge">{{ valCompteurEdf | number_format(2, ',', ' ') }} KWh</div>
+                            <div>{{ oCompteur.EDF.date |date("d/m/Y H:i", "Europe/Paris") }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="zone">
+                        <div id="chartEDF" class="col-md-12" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+                    
+                        <script type="text/javascript">
+                            {{ chart(obCompteur.EDF) }}
+                        </script>
+                    </div>
+                </div>  
+                <a href="{{ path('eedomus_compteurs_liste', {'type':'EDF'}) }}">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right glyphicon glyphicon-circle-arrow-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4 glyphicon glyphicon-fire dashicon">
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <div class="huge"> {{ oCompteur.GAZ.valeur | number_format(3, ',', ' ') }} m3 </div>
+                            <div>{{ oCompteur.GAZ.date |date("d/m/Y H:i", "Europe/Paris") }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="zone">
+                        <div id="chartGAZ" class="col-md-12" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+                    
+                        <script type="text/javascript">
+                            {{ chart(obCompteur.GAZ) }}
+                        </script>
+                    </div>
+                </div>  
+                
+                <a href="{{ path('eedomus_compteurs_liste', {'type':'GAZ'}) }}">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right glyphicon glyphicon-circle-arrow-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>   
+                
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4 glyphicon glyphicon-tint dashicon">
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <div class="huge"> EAU </div>
+                            <div>{{ oCompteur.EDF.date |date("d/m/Y H:i", "Europe/Paris") }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right glyphicon glyphicon-circle-arrow-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+            
+    </fieldset>
+{% endblock %}
