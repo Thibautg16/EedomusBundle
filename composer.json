@@ -13,8 +13,8 @@
         "email" : "thibaut@thibaut.ovh"
     }],
     "require": {
-        "php": ">=5.6",
-        "symfony/symfony": "2.8.*",
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.*",
         "ob/highcharts-bundle": "1.*",
         "thibautg16/squelette-bundle": "dev-master",
         "thibautg16/utilisateur-bundle": "dev-master"
