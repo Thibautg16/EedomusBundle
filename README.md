@@ -3,8 +3,8 @@
 **//!\\ Attention : ce module est en cours de développement //!\\**
 
 ### Prérequis
-- php 5.6
-- Symfony 2.8.*
+- php => 5.5.9
+- Symfony 3.*
 - ObHighchartsBundle
 - Thibautg16UtilisateurBundle
 - Thibautg16SqueletteBundle
