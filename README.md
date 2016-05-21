@@ -36,6 +36,9 @@
         public function registerBundles(){
             $bundles = array(
               // ...
+              new Thibautg16\SqueletteBundle\Thibautg16SqueletteBundle(),
+              new Thibautg16\UtilisateurBundle\Thibautg16UtilisateurBundle(),
+              new Ob\HighchartsBundle\ObHighchartsBundle(),
               new EedomusBundle\EedomusBundle(),
             );
         }
@@ -46,5 +49,25 @@
             resource: "@EedomusBundle/Resources/config/routing.yml"
             prefix:   /
             
+        Thibautg16UtilisateurBundle:
+            resource: "@Thibautg16UtilisateurBundle/Resources/config/routing.yml"
+            prefix:   /
+
+        Thibautg16SqueletteBundle:
+           resource: "@Thibautg16SqueletteBundle/Resources/config/routing.yml"
+           prefix:   /
+
+6. Update des entitees et creation / update BDD
+        php bin/console doctrine:generate:entities EedomusBundle
+        php bin/console doctrine:generate:entities Thibautg16UtilisateurBundle       
+        php bin/console doctrine:schema:update --force
+        
+### Installation à l'aide du script install_epargne.sh
+1. Télécharger le script 
+        wget https://raw.githubusercontent.com/Thibautg16/EedomusBundle/master/install_eedomus.sh               
+
+2. Exécuter le script en précisant le dossier d'installation
+        bash install_eedomus.sh /srv/www/eedomus  
+                     
 ## License
 Thibautg16EedomusBundle is released under the Apache License 2.0. See the bundled [LICENSE](LICENSE) file for details.

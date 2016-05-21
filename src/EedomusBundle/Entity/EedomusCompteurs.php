@@ -67,4 +67,110 @@ class EedomusCompteurs
      *
      */
     private $periph;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return EedomusCompteurs
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set valeur
+     *
+     * @param string $valeur
+     *
+     * @return EedomusCompteurs
+     */
+    public function setValeur($valeur)
+    {
+        $this->valeur = $valeur;
+
+        return $this;
+    }
+
+    /**
+     * Get valeur
+     *
+     * @return string
+     */
+    public function getValeur()
+    {
+        return $this->valeur;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return EedomusCompteurs
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set periph
+     *
+     * @param \EedomusBundle\Entity\EedomusPeriph $periph
+     *
+     * @return EedomusCompteurs
+     */
+    public function setPeriph(\EedomusBundle\Entity\EedomusPeriph $periph)
+    {
+        $this->periph = $periph;
+
+        return $this;
+    }
+
+    /**
+     * Get periph
+     *
+     * @return \EedomusBundle\Entity\EedomusPeriph
+     */
+    public function getPeriph()
+    {
+        return $this->periph;
+    }
 }
