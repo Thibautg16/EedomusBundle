@@ -12,7 +12,7 @@
 ## Installation EedomusBundle
 ### Installation à l'aide de composer
 1. Installer symfony si necessaire :
-        composer create-project symfony/framework-standard-edition eedomus "2.8.*"
+        composer create-project symfony/framework-standard-edition eedomus "3.*"
 
 1. Ajouter ``thibautg16/eedomus-bundle`` comme dépendance de votre projet dans le fichier ``composer.json`` :
 
@@ -57,16 +57,60 @@
            resource: "@Thibautg16SqueletteBundle/Resources/config/routing.yml"
            prefix:   /
 
-6. Update des entitees et creation / update BDD
+6. Update des entitees et creation / update BDD :
         php bin/console doctrine:generate:entities EedomusBundle
         php bin/console doctrine:generate:entities Thibautg16UtilisateurBundle       
         php bin/console doctrine:schema:update --force
         
+7. Remplacer le contenu du fichier "app/config/security.yml" par :
+
+        # app/config/security.yml
+
+        security:
+        encoders:
+                Thibautg16\UtilisateurBundle\Entity\Utilisateur:
+                algorithm:   sha512
+                iterations: 1
+                encode_as_base64: false
+
+        providers:
+                main:
+                entity: { class: Thibautg16\UtilisateurBundle\Entity\Utilisateur, property:username }
+
+        firewalls:
+                dev:
+                pattern:  ^/(_(profiler|wdt)|css|images|js)/
+                security: false
+
+                # On crée un pare-feu uniquement pour le formulaire
+                main_login:
+                # Cette expression régulière permet de prendre /login (mais pas /login_check !)
+                pattern:   ^/login$
+                # On autorise alors les anonymes sur ce pare-feu
+                anonymous: true
+
+                main:
+                pattern:   ^/
+                anonymous: false
+                provider:  main
+                form_login:
+                login_path: login
+                check_path: login_check
+                logout:
+                path:   logout
+                target: /login
+
+        role_hierarchy:
+                ROLE_ADMIN: ROLE_USER
+                ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        
 ### Installation à l'aide du script install_epargne.sh
-1. Télécharger le script 
+1. Télécharger le script :
+
         wget https://raw.githubusercontent.com/Thibautg16/EedomusBundle/master/src/install_eedomus.sh               
 
-2. Exécuter le script en précisant le dossier d'installation
+2. Exécuter le script en précisant le dossier d'installation :
+
         bash install_eedomus.sh /srv/www/eedomus  
                      
 ## License
