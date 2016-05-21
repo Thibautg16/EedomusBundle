@@ -20,6 +20,8 @@
           "require": {
             "thibautg16/eedomus-bundle": "dev-master"
           }
+          "minimum-stability": "dev",
+          "prefer-stable": true,
         }
 
 3. Installer vos dépendances :
