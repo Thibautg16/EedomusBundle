@@ -25,12 +25,12 @@
 
 {% block fil_ariane %} 
 	{{ parent() }} 
-    <li><a href="{{ path('ssi_ssi_homepage') }}">Accueil</a></li>
+    <li><a href="">Accueil</a></li>
     <li>eedomus</li>
     <li class="active"><a href="{{ path('eedomus_mesures_graph') }}"> Graph </a></li>
 {% endblock %}
 
-{% block body_ssi %}       
+{% block body_thibautg16 %}       
     <!-- Chemin vers la page AJAX -->
     <input type="hidden" id="chemin" value="{{ path('eedomus_mesures_ajaxgraph') }}" />
                 
