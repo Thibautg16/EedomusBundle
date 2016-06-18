@@ -29,7 +29,7 @@ Documentation
 
 La documentation concernant ce projet est disponible [ici][4]
 
-[1]: http://thibaut.ovh/doku.php?id=eedomusbundle:installation#installation_a_l_aide_du_script
-[2]: http://thibaut.ovh/doku.php?id=eedomusbundle:installation#installation_a_l_aide_de_composer
-[3]: http://thibaut.ovh/doku.php?id=eedomusbundle:cron_recup_donnees
-[4]: http://thibaut.ovh/doku.php?id=eedomusbundle&idx=eedomusbundle
+[1]: http://thibaut.ovh/programmation/eedomusbundle/installation#installation_script
+[2]: http://thibaut.ovh/programmation/eedomusbundle/installation#installation_composer
+[3]: http://thibaut.ovh/programmation/eedomusbundle/cron_recup_donnees
+[4]: http://thibaut.ovh/category/programmation/eedomusbundle
